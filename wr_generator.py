@@ -16,13 +16,13 @@ def create_game(size_w_user_input, size_l_user_input, num_of_words_h, num_of_wor
     fill_horizontal(num_of_words_h)
     print(board)
     fill_vertical(num_of_words_v)
-    #fill_board()
+    # fill_board()
     print(board)
 
 
 def get_word():
     dictionary = ["HELLO", "WORLD", "SAND", "SHERIF", "CURLS", "SIMBA", "CLOUT", "EXCURSION", "SETTLE", "RABBIT"]
-    random_word = random.randint(0, len(dictionary)-1)
+    random_word = random.randint(0, len(dictionary) - 1)
     return dictionary[random_word]
 
 
@@ -47,14 +47,15 @@ def check_col_availability(col):
             return 0
     return 1
 
-#broken
+
+# broken
 def advanced_col_availability_check(col, word):
     i = 0
     j = 0
     while j < len(word):
         while i < size_l:
             if board[i, col] == word[j]:
-                if size_l-(i+1) >= len(word) - (j+1):
+                if size_l - (i + 1) >= len(word) - (j + 1):
                     return 1
                 else:
                     continue
@@ -66,7 +67,7 @@ def advanced_col_availability_check(col, word):
 
 
 def pick_row():
-    temp_row = random.randint(0, size_l-1)
+    temp_row = random.randint(0, size_l - 1)
     get_temp_row = board[temp_row, :]
     if check_row_availability(get_temp_row) == 1:
         return temp_row
@@ -75,7 +76,7 @@ def pick_row():
 
 
 def pick_col(word):
-    temp_col = random.randint(0, size_w-1)
+    temp_col = random.randint(0, size_w - 1)
     get_temp_col = board[:, temp_col]
     if advanced_col_availability_check(temp_col, word) == 1:
         return temp_col
@@ -123,7 +124,7 @@ def fill_horizontal(num_of_words_h):
                 temp_row = pick_row()
                 insert_row(temp_word, temp_row)
                 num_of_words_h -= 1
-                print("Inserted horizontal word : '{}' successfully." .format(temp_word))
+                print("Inserted horizontal word : '{}' successfully.".format(temp_word))
 
 
 def fill_vertical(num_of_words_v):
@@ -145,7 +146,8 @@ def fill_vertical(num_of_words_v):
 
 
 def random_letter():
-    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+                "V", "W", "X", "Y", "Z"]
     temp_random_letter = random.randint(0, len(alphabet) - 1)
     return alphabet[temp_random_letter]
 
