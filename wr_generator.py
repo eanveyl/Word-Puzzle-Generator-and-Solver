@@ -165,4 +165,4 @@ def fill_board():
 
 
 create_game(10, 10, 5, 0)
-print("DONE")
+print("git_test")
