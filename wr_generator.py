@@ -5,10 +5,12 @@ import numpy
 import random
 
 
-def create_game(size_w_user_input, size_l_user_input, num_of_words_h, num_of_words_v):
+def create_game(size_w_user_input, size_l_user_input, num_of_words_h, num_of_words_v, word_list):
+    global lexicon
     global size_w
     global size_l
     global board
+    lexicon = word_list
     size_w = size_w_user_input
     size_l = size_l_user_input
     board = numpy.zeros((size_w, size_l), dtype=str)
@@ -21,9 +23,10 @@ def create_game(size_w_user_input, size_l_user_input, num_of_words_h, num_of_wor
 
 
 def get_word():
-    dictionary = ["HELLO", "WORLD", "SAND", "SHERIF", "CURLS", "SIMBA", "CLOUT", "EXCURSION", "SETTLE", "RABBIT"]
-    random_word = random.randint(0, len(dictionary) - 1)
-    return dictionary[random_word]
+    #dictionary = ["HELLO", "WORLD", "SAND", "SHERIF", "CURLS", "SIMBA", "CLOUT", "EXCURSION", "SETTLE", "RABBIT"]
+    #random_word = random.randint(0, len(dictionary) - 1)
+    global lexicon
+    return random.choice(lexicon)
 
 
 def check_row_availability(row):
@@ -166,5 +169,5 @@ def fill_board():
         j = 0
 
 
-create_game(10, 10, 5, 0)
-print("git_test")
+#create_game(10, 10, 5, 0)
+#print("git_test")
