@@ -26,7 +26,7 @@ def get_word():
     #dictionary = ["HELLO", "WORLD", "SAND", "SHERIF", "CURLS", "SIMBA", "CLOUT", "EXCURSION", "SETTLE", "RABBIT"]
     #random_word = random.randint(0, len(dictionary) - 1)
     global lexicon
-    return random.choice(lexicon)
+    return (random.choice(lexicon)).upper()
 
 
 def check_row_availability(row):
